@@ -1,0 +1,20 @@
+@use "sass:color";
+
+@import "colors";
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    user-select: none;
+
+    &::selection {
+        background-color: color.adjust($blue, $lightness: -5%);
+        color: color.adjust($white, $lightness: -5%);
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

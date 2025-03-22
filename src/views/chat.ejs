@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <link rel="stylesheet" href="/css/chat.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"> 
+</head>
+<body>
+    <main class="container">
+        <div class="chats">
+            <div class="search">
+                <i class="bx bx-search-alt-2"></i>
+                <input type="text" placeholder="Search">
+                <i class="bx bx-x"></i>
+            </div>
+            
+            <div class="contacts">
+                <% users.forEach(user => { %>
+                    <div class="contact" data-username="<%= user.username %>">
+                        <img src="<%= user.img %>" alt="<%= user.name %>" loading="lazy">
+                        <div class="info">
+                            <h4><%= user.name %></h4>
+                            <p id="description"></p>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+
+        <div class="conversation">
+            <div class="top">
+                <img src="" loading="lazy">
+                <div class="info">
+                    <h4></h4>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="center">
+                <!-- messages -->
+            </div>
+            
+            <div class="bottom">
+                <input type="text" id="message" placeholder="Type your message...">
+                <button id="send">
+                    <i class="bx bxs-send"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!-- gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <!-- socket.io -->
+    <script src="https://cdn.socket.io/4.1.3/socket.io.min.js"></script>
+    <!-- chat -->
+    <script src="js/chat.js"></script>
+</body>
+</html>

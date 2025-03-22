@@ -1,0 +1,244 @@
+@use "sass:color";
+
+@import "reset";
+@import "fonts";
+@import "colors";
+@import "toast";
+
+body {
+    background-color: $black;
+    color: $white;
+    font-family: "SF Pro Display", sans-serif;
+}
+
+.container {
+    max-width: 1000px;
+    height: 70vh;
+    margin: 0 auto;
+    margin-top: 8rem;
+    border: 1px solid $gray;
+    border-radius: 12px;
+    display: flex;
+    transform: scale(1.1);
+    opacity: 0;
+}
+
+.chats {
+    border-right: 1px solid $gray;
+    max-width: 300px;
+    padding: 12px;
+    width: 100%;
+
+    & .search {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    
+        .bx-search-alt-2 {
+            position: absolute;
+            left: 10px;
+            pointer-events: none;
+            font-size: 15px;
+            color: color.adjust($white, $lightness: -50%);
+        }
+    
+        input {
+            width: 100%;
+            padding: 8px 32px;
+            background-color: color.adjust($gray, $lightness: -6%);
+            color: color.adjust($white, $lightness: -30%);
+            border: none;
+            outline: none;
+            border-radius: 8px;
+        }
+
+        .bx-x {
+            position: absolute;
+            right: 10px;
+            font-size: 16px;
+            color: color.adjust($white, $lightness: -50%);
+            cursor: pointer;
+            display: none;
+
+            &:hover {
+                background-color: $gray;
+                border-radius: 50px;
+            }
+        }
+    }
+    
+    & .contacts {
+        margin-top: 10px;
+        max-height: calc(70vh - 70px);
+        overflow-y: scroll;
+        scrollbar-width: none;
+    }
+}
+
+.contact {
+    display: flex;
+    padding: 12px;
+    cursor: pointer;
+    position: relative;
+
+    &.online::after {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background-color: #20da6a;
+        border-radius: 50%;
+        bottom: 13px;
+        left: 39px;
+    }
+
+    img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .info {
+        margin-left: 12px;
+
+        h4 {
+            font-size: 16px;
+            font-weight: 500;
+            color: color.adjust($white, $lightness: -10%);
+        }
+
+        p {
+            font-size: 13px;
+            color: color.adjust($white, $lightness: -32%);
+        }
+    }
+
+    &:hover {
+        background-color: color.adjust($black, $lightness: 3%);
+        border-radius: 8px;
+    }
+}
+
+.conversation {
+    width: 100%;
+    position: relative;
+    display: none;
+
+    & .top {
+        display: flex;
+        padding: 16px;
+        background-color: $black;
+        border-bottom: 1px solid $gray;
+        border-radius: 0 12px 0 0;
+
+        & img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50px;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        & .info {
+            margin-left: 12px;
+    
+            & h4 {
+                font-size: 16px;
+                font-weight: 500;
+                color: color.adjust($white, $lightness: -10%);
+            }
+    
+            & p {
+                font-size: 13px;
+                color: color.adjust($white, $lightness: -32%);
+            }
+        }
+    }
+
+    .center {
+        padding: 20px;
+        max-height: calc(60vh - 60px);
+        overflow-y: scroll;
+        scrollbar-width: none;
+        
+        & .message {
+            width: 100%;
+            display: flex;
+            margin-bottom: 10px;
+    
+            & .other {
+                display: inline;
+                background-color: $gray;
+                color: color.adjust($white, $lightness: -20%);
+                font-size: 14px;
+                padding: 10px 12px;
+                border-radius: 10px;
+                justify-content: flex-start;
+                text-align: left;
+                max-width: 300px;
+                word-wrap: break-word;
+                white-space: normal;
+                user-select: text;
+            }
+    
+            & .me {
+                display: inline;
+                background-color: color.change($blue, $saturation: 49%, $lightness: 44%);;
+                color: color.adjust($white, $lightness: -10%);
+                font-size: 14px;
+                padding: 10px 12px;
+                border-radius: 10px;
+                justify-content: flex-end;
+                margin-left: auto;
+                max-width: 300px;
+                word-wrap: break-word;
+                white-space: normal;
+                user-select: text;
+            }
+        }
+    }
+    
+    & .bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        gap: 12px;
+        padding: 16px 24px 24px;
+        background-color: $black;
+        border-radius: 12px;
+
+        & input {
+            flex: 1;
+            background-color: $black;
+            color: color.adjust($white, $lightness: -25%);
+            padding: 10px 12px;
+            border: 1px solid $gray;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+    
+        & button {
+            background-color: $black;
+            color: color.adjust($white, $lightness: -35%);
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all .3s ease;
+
+            &:hover {
+                color: color.adjust($white, $lightness: -20%);
+                transform: scale(1.1);
+            }
+
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+    }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/register.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <main class="container">
+        <div class="head">
+            <h1 id="step-title">Create an account</h1>
+            <p id="step-description">Welcome new user</p>
+        </div>
+
+        <!-- step1 -->
+        <div class="step-1">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" autocomplete="off">
+                <span class="invalid-warn"></span>
+            </div>
+    
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password">
+                <span class="invalid-warn"></span>
+            </div>
+        </div>
+
+        <!-- step2 -->
+        <div class="step-2">
+            <div class="input-group">
+                <label for="name">Your name</label>
+                <input type="text" id="name" autocomplete="off">
+                <span class="invalid-warn"></span>
+            </div>
+    
+            <div class="input-group">
+                <label for="bio">Bio</label>
+                <input type="text" id="bio" autocomplete="off">
+                <span class="invalid-warn"></span>
+            </div>
+        </div>
+
+        <!-- step3 -->
+        <div class="step-3">
+            <img src="/images/user-default.png" alt="">
+            <input id="image" type="file" accept=".png">
+        </div>
+        
+        <button type="button">Continue</button>
+
+        <div class="steps">
+            <div class="step" data-step="1">1</div>
+            <div class="step" data-step="2">2</div>
+            <div class="step" data-step="3">3</div>
+        </div>
+
+        <div class="foo-message">
+            Already have an account? <a href="/login">Sign in</a>
+        </div>
+    </main>
+
+    <section class="welcome">
+        Welcome
+    </section>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!-- gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <!-- register -->
+    <script src="/js/register.js"></script>
+</body>
+</html>

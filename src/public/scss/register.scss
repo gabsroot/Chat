@@ -1,0 +1,202 @@
+@use "sass:color";
+
+@import "reset";
+@import "fonts";
+@import "colors";
+@import "toast";
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+body {
+    background-color: $black;
+    color: $white;
+    font-family: "SF Pro Display", sans-serif;
+}
+
+.container {
+    max-width: 420px;
+    margin: 0 auto;
+    margin-top: 10rem;
+    padding: 40px 30px;
+
+    .head {
+        & h1 {
+            margin-bottom: 12px;
+            color: color.adjust($white, $lightness: -5%);
+        }
+    
+        & p {
+            color: color.adjust($white, $lightness: -40%);
+            font-size: 17px;
+        }
+    }
+    
+    .input-group {
+        margin-top: 20px;
+    
+        & label {
+            display: block;
+            font-size: 15px;
+            color: color.adjust($white, $lightness: -25%);
+            margin-bottom: 8px;
+        }
+    
+        & input {
+            background-color: $black;
+            color: color.adjust($white, $lightness: -30%);
+            font-size: 15px;
+            border: 1px solid $gray;
+            outline: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        & .is-invalid {
+            border-color: $red !important;
+        }
+        
+        & .invalid-warn {
+            display: none;
+            margin-top: 8px;
+            color: $red;
+            font-size: 0.875rem;
+        }
+        
+        & .is-invalid ~ .invalid-warn {
+            display: block;
+        }
+        
+        & .is-valid {
+            border: 1px solid $gray !important;
+        }
+    }
+
+    .step-2 {
+        display: none;
+    }
+
+    .step-3 {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        margin: 2.3rem 0 0.7rem;
+
+        & img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            cursor: pointer;
+            object-fit: cover;
+            object-position: center;
+            transition: all .3s ease;
+            opacity: 0.9;
+
+            &:hover {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+        }
+
+        & input {
+            display: none;
+        }
+    }
+    
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color: $blue;
+        color: $white;
+        font-size: 15px;
+        border: none;
+        outline: none;
+        margin-top: 30px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all .3s ease;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .steps {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 2rem 1.5rem 0 1.5rem;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: $gray;
+            z-index: 0;
+        }
+
+        & div {
+            background-color: $gray;
+            color: $white;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        & .active {
+            background-color: $blue;
+        }
+    }
+
+    & .foo-message {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 15px;
+        color: color.adjust($white, $lightness: -40%);
+
+        & a {
+            color: $white;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.welcome {
+    display: none;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 50vh;
+    transform: translateY(-50%);
+}
+
+.spinner {
+    width: 15px;
+    height: 15px;
+    border: 2px solid color.adjust($white, $lightness: -5%);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    animation: rotation 1s linear infinite;
+    vertical-align: middle;
+    margin-top: -3px;
+}

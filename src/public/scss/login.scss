@@ -1,0 +1,127 @@
+@use "sass:color";
+
+@import "reset";
+@import "fonts";
+@import "colors";
+@import "toast";
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+body {
+    background-color: $black;
+    color: $white;
+    font-family: "SF Pro Display", sans-serif;
+}
+
+.container {
+    max-width: 420px;
+    margin: 0 auto;
+    margin-top: 10rem;
+    padding: 40px 30px;
+
+    .head {
+        & h1 {
+            margin-bottom: 12px;
+            color: color.adjust($white, $lightness: -5%);
+        }
+    
+        & p {
+            color: color.adjust($white, $lightness: -40%);
+            font-size: 17px;
+        }
+    }
+    
+    .input-group {
+        margin-top: 20px;
+    
+        & label {
+            display: block;
+            font-size: 15px;
+            color: color.adjust($white, $lightness: -25%);
+            margin-bottom: 8px;
+        }
+    
+        & input {
+            background-color: $black;
+            color: color.adjust($white, $lightness: -30%);
+            font-size: 15px;
+            border: 1px solid $gray;
+            outline: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+        }
+
+        & .is-invalid {
+            border-color: $red !important;
+        }
+        
+        & .invalid-warn {
+            display: none;
+            margin-top: 8px;
+            color: $red;
+            font-size: 0.875rem;
+        }
+        
+        & .is-invalid ~ .invalid-warn {
+            display: block;
+        }
+        
+        & .is-valid {
+            border: 1px solid $gray !important;
+        }
+    }
+    
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color: $blue;
+        color: $white;
+        font-size: 15px;
+        border: none;
+        outline: none;
+        margin-top: 30px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all .3s ease;
+    
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    & .foo-message {
+        text-align: center;
+        margin-top: 2rem;
+        font-size: 15px;
+        color: color.adjust($white, $lightness: -40%);
+
+        & a {
+            color: $white;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.spinner {
+    width: 15px;
+    height: 15px;
+    border: 2px solid color.adjust($white, $lightness: -5%);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    animation: rotation 1s linear infinite;
+    vertical-align: middle;
+    margin-top: -3px;
+}

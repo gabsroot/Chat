@@ -1,0 +1,27 @@
+@use "sass:color";
+
+@import "colors";
+
+.toast-container {
+    position: fixed;
+    bottom: 40px;
+    right: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 999;
+
+    & .toast {
+        background-color: $black;
+        color: color.adjust($white, $lightness: -30%);
+        font-size: 15px;
+        border: 1px solid $gray;
+        padding: 10px 14px;
+        border-radius: 6px;
+        opacity: 0;
+        transform: scale(0.9) translateY(30px);
+        pointer-events: none;
+        width: 280px;
+        word-wrap: break-word;
+    }
+}
