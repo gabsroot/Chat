@@ -49,4 +49,6 @@ npm run sass
 
 ## Authors
 
-<a href="https://github.com/gabsroot/chat/graphs/contributors"><img src="https://contrib.rocks/image?repo=gabsroot/chat"/></a>
+<a href="https://github.com/gabsroot/chat/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=gabsroot/chat" />
+</a>
