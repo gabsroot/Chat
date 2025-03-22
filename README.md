@@ -50,5 +50,5 @@ npm run sass
 ## Authors
 
 <a href="https://github.com/gabsroot/chat/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=gabsroot/chat" />
+  <img src="https://contrib.rocks/image?repo=gabsroot/Chat" />
 </a>
